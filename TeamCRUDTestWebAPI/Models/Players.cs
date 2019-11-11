@@ -20,6 +20,7 @@ namespace TeamCRUDTestWebAPI.Models
         public int PlayerStatusId { get; set; }
 
         [StringLength(50)]
+        
         public string TeamId { get; set; }
 
 

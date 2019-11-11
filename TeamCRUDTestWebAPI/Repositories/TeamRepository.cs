@@ -38,6 +38,15 @@ namespace TeamCRUDTestWebAPI.Repositories
         {
             var team = await _teamContext.Teams.SingleOrDefaultAsync(t => t.TeamId == id);
             _teamContext.Teams.Remove(team);
+
+            foreach (var pl in _teamContext.Players)
+            {
+                if(pl.TeamId == id)
+                {
+                    pl.TeamId = null;
+                }
+            }
+
             await _teamContext.SaveChangesAsync();
 
             return team;
