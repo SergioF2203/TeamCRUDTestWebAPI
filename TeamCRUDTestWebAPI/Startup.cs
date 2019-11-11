@@ -30,6 +30,7 @@ namespace TeamCRUDTestWebAPI
             services.AddScoped<IPlayerStatusRepository, PlayerStatusRepository>();
             services.AddScoped<IPlayerRepository, PlayerRepository>();
             services.AddScoped<ITeamRepository, TeamRepository>();
+            services.AddScoped<ITeamStateRepository, TeamStateRepository>();
 
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<TeamContext>(options => options.UseSqlServer(connection));
