@@ -38,6 +38,7 @@ namespace TeamCRUDTestWebAPI.Repositories
         {
             var player = await _teamContext.Players.SingleOrDefaultAsync(p => p.PlayerId == id);
             _teamContext.Remove(player);
+            await _teamContext.SaveChangesAsync();
             return player;
         }
 
